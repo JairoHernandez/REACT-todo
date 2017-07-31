@@ -815,7 +815,7 @@ TodoList component
 	It renders itself when checking off a todo item.
 
 
-------------Creating the Root Component(Todo App)
+------------Creating the Root Component(Todo App)------------
 
 jairomh@ubuntu64-DevOps:~/REACT/ReactTodo$ git remote -v
 origin	git@github.com:JairoHernandez/react-boilerplate.git (fetch)
@@ -831,3 +831,12 @@ Total 21 (delta 0), reused 21 (delta 0)
 To git@github.com:JairoHernandez/REACT-todo.git
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
+
+------------Rendering Lists in React(TodoList & Todo)------------
+
+TodoList component knows how to render a list of todos that it gets passed as props.
+An individual Todo component knows how to render a single element in that list.
+To get started make static todo data in TodoApp that is passed TodoList and then into Todo.
+
+Spread operator
+	{...todo}
