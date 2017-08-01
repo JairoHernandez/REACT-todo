@@ -840,3 +840,9 @@ To get started make static todo data in TodoApp that is passed TodoList and then
 
 Spread operator
 	{...todo}
+
+------------Testing List Components------------
+
+// Returns array.
+// Checks how many of a given component are rendered under a separate component.
+var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
