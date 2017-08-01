@@ -25,11 +25,11 @@ describe('TodoList', () => {
         ];
 
         var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
-        console.log(todoList);
 
         // Returns array.
         // Checks how many of a given component are rendered under a separate component.
         var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
+        // console.log(todosComponents.length);
 
         expect(todosComponents.length).toBe(todos.length); // Verify proper # of items rendered.
     });
