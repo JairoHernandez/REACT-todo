@@ -846,3 +846,14 @@ Spread operator
 // Returns array.
 // Checks how many of a given component are rendered under a separate component.
 var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
+
+------------Setting Up The Filter Component------------
+
+onChange event 
+	It is coool it will start to search and the display  the first letter you type in and so forth
+	with the next letters. Just like any other events it takes the method you want to call.
+
+	Does not require its handleChange method to use  e.preventDefault();
+
+TodoApp.jsx is the only component that maintains state, meaning it will use this.state.
+All other components are presentational.
