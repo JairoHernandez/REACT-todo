@@ -857,3 +857,7 @@ onChange event
 
 TodoApp.jsx is the only component that maintains state, meaning it will use this.state.
 All other components are presentational.
+
+------------Wiring Up AddTodo------------
+
+~/REACT/ReactTodo$ npm install node-uuid --save-dev
