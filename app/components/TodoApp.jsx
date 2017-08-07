@@ -12,19 +12,23 @@ var uuid = require('node-uuid');
             todos: [
                 {
                     id: uuid(),
-                    text: 'Walk the dog'
+                    text: 'Walk the dog',
+                    completed: false
                 },
                 {
                     id: uuid(),
-                    text: 'Clean the yard'
+                    text: 'Clean the yard',
+                    completed: true
                 },
                 {
                     id: uuid(),
-                    text: 'Leave mail on porch'
+                    text: 'Leave mail on porch',
+                    completed: true
                 },
                 {
                     id: uuid(),
-                    text: 'Play video games'
+                    text: 'Play video games',
+                    completed: false
                 }
                 
             ]
@@ -37,7 +41,8 @@ var uuid = require('node-uuid');
                 ...this.state.todos, 
                 { 
                     id: uuid(),
-                    text: text
+                    text: text,
+                    completed: false
                 }
             ]
         });

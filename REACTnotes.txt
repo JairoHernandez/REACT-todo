@@ -861,3 +861,8 @@ All other components are presentational.
 ------------Wiring Up AddTodo------------
 
 ~/REACT/ReactTodo$ npm install node-uuid --save-dev
+
+
+------------Toggling Todos------------
+
+There is no field to keep track of when a todo is completed.
