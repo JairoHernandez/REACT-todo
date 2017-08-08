@@ -1,39 +1,25 @@
 var React = require('react');
+var uuid = require('node-uuid');
+
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
-var uuid = require('node-uuid');
+var TodoAPI = require('TodoAPI');
  
  var TodoApp = React.createClass({
      getInitialState: function() {
         return {
             showCompleted: false, // as app starts show todos not yet finished
             searchText: '', // show all completed items
-            todos: [
-                {
-                    id: uuid(),
-                    text: 'Walk the dog',
-                    completed: false
-                },
-                {
-                    id: uuid(),
-                    text: 'Clean the yard',
-                    completed: true
-                },
-                {
-                    id: uuid(),
-                    text: 'Leave mail on porch',
-                    completed: true
-                },
-                {
-                    id: uuid(),
-                    text: 'Play video games',
-                    completed: false
-                }
-                
-            ]
+            todos: TodoAPI.getTodos()
         }
      },
+
+     // Lifecycle method fired after either the props or the states for the component changes.
+     componentDidUpdate: function() {
+        TodoAPI.setTodos(this.state.todos);
+     },
+
      handleAddTodo: function(text) {
         //alert('new todos: ' + text);
         this.setState({
