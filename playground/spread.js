@@ -44,15 +44,9 @@ final.forEach(function(final, index) {
 list = [1, 2, 3];
 list2 = [{'jairo': 'old'}, {'odie': 'wife'}, {'rose': 'daughter'}];
 result = list.map((item) => {
+    console.log('test');
     return item + 1;
 })
 console.log(result); // [ 2, 3, 4 ]
 console.log(...list); // 1 2 3
 //console.log({...list2}); // error
-
-obj1 = {name: 'jairo', age: 37, weight: 210};
-console.log(...obj1); // error
-obj_result = obj1.map((item) => {
-    return (...item);
-});
-console.log(obj_result);

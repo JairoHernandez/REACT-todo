@@ -48,6 +48,19 @@ var uuid = require('node-uuid');
         });
      },
 
+     handleToggle: function(id) {
+        // alert(id);
+        var updatedTodos = this.state.todos.map((todo) => {
+
+            if (todo.id === id) {
+                todo.completed = !todo.completed;
+            }
+            return todo;
+        });
+
+        this.setState({todos: updatedTodos});
+     },
+
      handleSearch: function(showCompleted, searchText) {
         this.setState({
             showCompleted: showCompleted,
@@ -62,7 +75,7 @@ var uuid = require('node-uuid');
          return (
              <div>
                  <TodoSearch onSearch={this.handleSearch}/>
-                 <TodoList todos={todos}/>
+                 <TodoList todos={todos} onToggle={this.handleToggle}/>
                  <AddTodo onAddTodo={this.handleAddTodo}/>
              </div>
          )
