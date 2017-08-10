@@ -3,6 +3,7 @@ var $ = require('jquery');
 
 module.exports = {
     setTodos: function(todos) {
+        // console.log('todos -->', todos);
         if ($.isArray(todos)) {
             localStorage.setItem('todos', JSON.stringify(todos)); // localStorage only takes a string in.
             return todos;
