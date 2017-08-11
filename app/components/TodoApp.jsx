@@ -9,8 +9,8 @@ var TodoAPI = require('TodoAPI');
  var TodoApp = React.createClass({
      getInitialState: function() {
         return {
-            showCompleted: false, // as app starts show todos not yet finished
-            searchText: '', // show all completed items
+            showCompleted: false, // as app starts do not show completed
+            searchText: '',
             todos: TodoAPI.getTodos()
         }
      },
@@ -34,7 +34,7 @@ var TodoAPI = require('TodoAPI');
         });
      },
 
-     handleToggle: function(id) {
+     handleToggle: function(id) { // todo checkbox
         // alert(id);
         var updatedTodos = this.state.todos.map((todo) => {
 
@@ -47,7 +47,7 @@ var TodoAPI = require('TodoAPI');
         this.setState({todos: updatedTodos});
      },
 
-     handleSearch: function(showCompleted, searchText) {
+     handleSearch: function(showCompleted, searchText) { // show completed checkbox
         this.setState({
             showCompleted: showCompleted,
             searchText: searchText.toLowerCase()

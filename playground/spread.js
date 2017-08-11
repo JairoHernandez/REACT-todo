@@ -52,4 +52,10 @@ console.log(...list); // 1 2 3
 //console.log({...list2}); // error
 console.log('***************');
 list3 = [1,2,2,3];
-list3filtered = list3.filter(element)
+list3filtered = list3.filter((element) => {
+    console.log('filter');
+    //return true; // Return conditoin is true so it returns all array elements.
+    return element > 1;
+});
+
+console.log('list3filtered:', list3filtered)
