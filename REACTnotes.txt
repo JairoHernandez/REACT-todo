@@ -866,3 +866,11 @@ All other components are presentational.
 ------------Toggling Todos------------
 
 There is no field to keep track of when a todo is completed.
+
+------------Dates with Momment------------
+
+momentjs.com/
+
+click 'Display' tab link it's very useful.
+
+localStorage.removeItem('todos');
