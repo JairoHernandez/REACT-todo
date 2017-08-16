@@ -8,6 +8,12 @@ var TodoList = React.createClass({
         //console.log('todos->', todos);
         
         var renderTodos = () => {
+
+            if (todos.length === 0) {
+                return (
+                    <p className="container__message">Nothing To Do</p>
+                )
+            }
            
            // Return an array of jsx.
            // For every todo return a piece of jsx that is rendered to screen.
