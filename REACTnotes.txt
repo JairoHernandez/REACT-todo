@@ -907,3 +907,7 @@ Setup 4 actions.
 2. Toggle 'Show completed todos'.
 3. Toggling individual todo.
 4. Entering item and clicking 'Add Todo' button.
+
+Reducers
+
+searchTextReducer

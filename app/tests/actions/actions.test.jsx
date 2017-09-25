@@ -1,5 +1,5 @@
 var expect = require('expect');
-var actions = require('actions');
+var actions = require('actions'); // Found with alias in webpack.config.
 
 describe('Actions', () => {
     it('should generate search text action', () => {
