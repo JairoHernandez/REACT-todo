@@ -49,6 +49,7 @@ result = list.map((item) => {
 })
 console.log(result); // [ 2, 3, 4 ]
 console.log(...list); // 1 2 3
+console.log(...list2); // { jairo: 'old' } { odie: 'wife' } { rose: 'daughter' }
 //console.log({...list2}); // error
 console.log('***************');
 list3 = [1,2,2,3];

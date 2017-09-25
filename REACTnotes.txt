@@ -874,3 +874,36 @@ momentjs.com/
 click 'Display' tab link it's very useful.
 
 localStorage.removeItem('todos');
+
+------------Why Redux?------------
+
+Maintains entire state of app separate from components in a store(plain JS object).
+Makes code more reusable and avoids having to write annoying handler functions in parent component
+that know how to handle interactions from children components.
+This means we have to pass data down into the components or pass a handler.
+This is not very reusable because it depends so much on the context of the parent.
+
+	<TodoSearch onSearch={this.handleSearch}/>
+    <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+    <AddTodo onAddTodo={this.handleAddTodo}/>
+
+------------Instlaling Redux------------
+~/REACT$ cp -r ReactBoilerplate3 LearnRedux 
+
+And remove git remote.
+
+~/REACT$ cd LearnRedux/
+~/REACT/LearnRedux$ git remote -v
+origin	git@github.com:JairoHernandez/react-boilerplate.git (fetch)
+origin	git@github.com:JairoHernandez/react-boilerplate.git (push)
+~/REACT/LearnRedux$ git remote rm origin
+~/REACT/LearnRedux$ npm install redux@3.3.1 --save-dev
+
+------------Todo: Creating & Testing Actions------------
+
+Setup 4 actions.
+
+1. When you type in a search.
+2. Toggle 'Show completed todos'.
+3. Toggling individual todo.
+4. Entering item and clicking 'Add Todo' button.
