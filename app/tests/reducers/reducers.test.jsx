@@ -1,5 +1,6 @@
 var expect = require('expect');
 var reducers = require('reducers'); // Found with alias in webpack.config.
+var df = require('deep-freeze-strict');
 
 describe('Reducers', () => {
     describe('searchTextReducer', () => {
@@ -12,10 +13,23 @@ describe('Reducers', () => {
                 searchText: 'dog'
             };
 
-            var res = reducers.searchTextReducer('', action);
+            var res = reducers.searchTextReducer(df(''), df(action));
             expect(res).toEqual(action.searchText);
         });
 
-        // Test that the showCompleted status gets flipped
+        
+    });
+
+    // Test that the showCompleted status gets flipped
+    describe('showCompletedReducer', () => {
+        it('should toggle showCompleted', () => {
+            
+            var action = {
+                type: 'TOGGLE_SHOW_COMPLETED'        
+            };
+
+            var res = reducers.showCompletedReducer(df(false), df(action));
+            expect(res).toEqual(true);
+        });
     });
 });

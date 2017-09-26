@@ -908,6 +908,19 @@ Setup 4 actions.
 3. Toggling individual todo.
 4. Entering item and clicking 'Add Todo' button.
 
-Reducers
+------------Todo: SearchText & ShowCompleted Reducers------------
+Reducers are pure functions, which means they dont update things passed in(aka arguments).
+Tests would be smoother if we could update them so use this 3rd party library.
 
-searchTextReducer
+ReactTodo$ npm install deep-freeze-strict --save-dev
+
+This will fail tests if passed in arguments are changed.
+	
+	reducers.test.jsx
+		var df = require('deep-freeze-strict');
+
+	Test that it fails by adding 
+	
+	action.searchText = 2;
+	
+	into reducers.jsx, which is illegal in a pure function. 
