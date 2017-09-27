@@ -933,3 +933,53 @@ It's best to make sure Redux is working fine outside of the context with React c
 Both should work independently at first before integration.
 
 After creating store and dispatching actions working fine tie Redux into React app.
+
+------------React-Redux Provider and Connect------------
+
+Redux will eliminate need to pass callback functions from the very top(TodoApp) 
+to the very bottom(Todo) from the diagram.
+
+Instead the TodoList component will say "Hey I'd like the todos array and the individual Todo
+component is going to be able to call dispatch without needing to call a handler getting passed
+up from parent.
+
+The 'provider' comes with with React-Redux. It let's you provide its store to your children so
+components like TodoList even though they are rendered two components deep can still access
+attributes on the store and use them to render.
+
+app.jsx
+	Add this 
+		
+		var Provider = require('react-redux');
+
+	to now be able to call it in React.DOM.render();
+
+		ReactDOM.render(
+		<Provider store={store}>
+			<TodoApp />
+		</Provider>,
+		document.getElementById('app')
+		);
+	
+	Now you can remove all of this 
+
+		handleToggle: function(id) { // todo checkbox
+			// alert(id);
+			var updatedTodos = this.state.todos.map((todo) => {
+
+				if (todo.id === id) {
+					todo.completed = !todo.completed;
+					todo.completedAt = todo.completed ? moment().unix() : undefined;
+				}
+				return todo;
+			});
+
+			this.setState({todos: updatedTodos});
+		},
+
+	this makes our TodoList component more reusable we can put anywhere we'd like regardless of
+	what data or callbacks its parent has. In this case the TodoApp component can now be 
+	rendered from 
+
+4:22
+		

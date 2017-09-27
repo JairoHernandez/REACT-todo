@@ -34,7 +34,7 @@ module.exports = {
         var filteredTodos = todos;
         //console.log('filteredTodos -->', filteredTodos); // array of todo objects
 
-        filteredTodos = filteredTodos.filter((todo) => {
+        filteredTodos = filteredTodos.filter((todo) => { // Runs on each element.
             // !todo.completed equates to NOT completed
             //console.log(todo.completed + "---" + showCompleted);
             return !todo.completed || showCompleted; // showCompleted as True makes condition true so returns all in filteredTodos.
