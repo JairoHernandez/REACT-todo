@@ -924,3 +924,12 @@ This will fail tests if passed in arguments are changed.
 	action.searchText = 2;
 	
 	into reducers.jsx, which is illegal in a pure function. 
+
+------------Todo: Setting Up The Redux Store------------
+
+ReactTodo$ npm install redux@3.3.1 --save-dev
+
+It's best to make sure Redux is working fine outside of the context with React components.
+Both should work independently at first before integration.
+
+After creating store and dispatching actions working fine tie Redux into React app.
