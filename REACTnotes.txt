@@ -887,6 +887,27 @@ This is not very reusable because it depends so much on the context of the paren
     <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
     <AddTodo onAddTodo={this.handleAddTodo}/>
 
+Redux steps:
+
+1. Create Components.
+2. Create relevant actions.
+3. Create reducers for the actions.
+4. Combine all reducers.
+5. Configure store with createStore.
+6. Provide store to root component.
+
+Action creators are functions that return actions(plain JS objects).
+To change something in the state you need to dispatch an action.
+Every change in described as an action.
+Actions are payloads of information that send data from your application to your store. 
+They are the only source of information for the store. You send them to the store using 
+store.dispatch().
+
+Finally, to tie state and actions together, we write a function called a reducer. 
+Again, nothing magical about it—it’s just a function that takes state and action as arguments,
+and returns the next state of the app. It would be hard to write such a function for a big app, 
+so we write smaller functions managing parts of the state:
+
 ------------Instlaling Redux------------
 ~/REACT$ cp -r ReactBoilerplate3 LearnRedux 
 
@@ -963,6 +984,7 @@ app.jsx
 	
 	Now you can remove all of this 
 
+	TodoApp.jsx
 		handleToggle: function(id) { // todo checkbox
 			// alert(id);
 			var updatedTodos = this.state.todos.map((todo) => {
@@ -981,5 +1003,43 @@ app.jsx
 	what data or callbacks its parent has. In this case the TodoApp component can now be 
 	rendered from 
 
-4:22
-		
+	<TodoList />
+
+To specify pieces of state you would like to use.
+
+	TodoList.jsx
+		var {connect} = require('react-redux');
+
+	`connect` is the companion to the Provider component. The Provider component provides access
+	to the store for all of its children, but the children need to specify which data they'data
+	like. Delete this since we dont have this anymore.
+
+		onToggle={this.props.onToggle}
+	
+	Then connect Redux store to compoent.
+
+		module.exports = connect(
+			(state) => {
+				return {
+					// toodos is the property(props) that will be set in TodoList component.
+					todos: state.todos 
+				}
+			}
+)(TodoList);
+	
+Note: Provider should only be loaded in root of our app.
+
+
+If you forget your ES6 brackets around Provider
+
+	var Provider = require('react-redux'); // Should be {Provider}
+
+the app will fail to load and you will see this error.
+
+Warning: React.createElement: type should not be null, undefined, boolean, or number. It should be a string (for DOM elements) or a ReactClass (for composite components).
+
+
+------------Testing Reduxed Components------------
+
+------------Refactoring AddTodo------------
+

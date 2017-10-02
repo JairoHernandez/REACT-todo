@@ -37,7 +37,8 @@ module.exports = {
         filteredTodos = filteredTodos.filter((todo) => { // Runs on each element.
             // !todo.completed equates to NOT completed
             //console.log(todo.completed + "---" + showCompleted);
-            return !todo.completed || showCompleted; // showCompleted as True makes condition true so returns all in filteredTodos.
+            // When page loads showCompleted = false and if completed state is "true" it negates to false(!). "Completed" items will not list at page load.
+            return !todo.completed || showCompleted; 
         });
 
         // Filter by searchText

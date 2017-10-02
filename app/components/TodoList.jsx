@@ -1,7 +1,8 @@
 var React = require('react');
-var Todo = require('Todo');
+var {connect} = require('react-redux');
+import Todo from 'Todo';
 
-var TodoList = React.createClass({
+export var TodoList = React.createClass({
     render: function() {
 
         var {todos} = this.props;
@@ -22,7 +23,7 @@ var TodoList = React.createClass({
            return todos.map((todo) => { // the todo is an individual object with properties id, text. Reactjs trick {...todo}
                 //console.log('todo->', todo);
                 return (
-                    <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
+                    <Todo key={todo.id} {...todo}/>
                 );
             });
         };
@@ -35,4 +36,11 @@ var TodoList = React.createClass({
     }
 });
 
-module.exports = TodoList;
+// connect() does a connection to TodoList, which means the TodoList component can now request
+// data to render itself. Goal here is to connect Redux store to a component.
+export default connect(
+    (state) => {
+        // todos is the property(props) that will be set in TodoList component.
+        return { todos: state.todos };
+    }
+)(TodoList);
