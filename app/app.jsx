@@ -13,11 +13,6 @@ store.subscribe(() => {
   console.log('New state', store.getState());
 });
 
-// Chrome console output.
-store.dispatch(actions.addTodo('Clean the yard')); // Placed into todos: [{}] array of objects.
-store.dispatch(actions.setSearchText('yard')); // Placed into key 'searchText'.
-store.dispatch(actions.toggleShowCompleted()); // ""
-
 // Load Foundation
 $(document).foundation();
 
