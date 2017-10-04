@@ -7,11 +7,18 @@ var TodoApp = require('TodoApp');
 
 var actions = require('actions'); // alias in webpack.config.js
 var store = require('configureStore').configure();
+var TodoAPI = require('TodoAPI');
 
 // listens to changes on my store
 store.subscribe(() => {
-  console.log('New state', store.getState());
+  var state = store.getState();
+  //console.log('New state', store.getState());
+  console.log('New state', state);
+  TodoAPI.setTodos(state.todos);
 });
+
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos)); // bulk add todos
 
 // Load Foundation
 $(document).foundation();
